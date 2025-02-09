@@ -1,0 +1,14 @@
+<p-select [options]="sortingTypes"
+          [(ngModel)]="sorting"
+          [disabled]="!isWorkbookSelected"
+          (onChange)="onSortingChanged.emit($event.value)"
+          class="w-full md:w-56"
+/>
+<p-inputnumber [(ngModel)]="hideIf"
+               [useGrouping]="false"
+               [min]="0"
+               [disabled]="!isWorkbookSelected"
+               (onInput)="onHideIfInput($event.value)"
+               mode="decimal"
+               inputId="withoutgrouping"
+/>

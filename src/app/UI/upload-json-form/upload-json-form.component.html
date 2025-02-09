@@ -1,0 +1,28 @@
+<!--accept="application/json, .json"-->
+
+<div class="card flex flex-col items-center justify-center gap-4">
+
+  <p-fileupload mode="basic"
+                chooseLabel="Upload JSON"
+                chooseIcon="pi pi-upload"
+                [auto]="true"
+                [customUpload]="true"
+                (uploadHandler)="onUpload.emit($event)"
+                (onError)="showErr($event)"/>
+
+  <p-button icon="pi pi-lightbulb"
+            severity="info"
+            outlined
+            (onClick)="showHint()"
+            [disabled]="isHintVisible()" />
+
+</div>
+
+<p-message *ngIf="isHintVisible()"
+           closable
+           severity="info"
+           (onClose)="hideHint()"
+>{{getHint()}}</p-message>
+
+<i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+<i class="pi pi-spin pi-cog" style="font-size: 2rem"></i>

@@ -1,0 +1,23 @@
+<div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
+  <div class="grid">
+    <app-workbook *ngFor="let book of storage.workbooks$ | async"
+                  [workbook]="book"
+                  [isSelected]="(storage.selected$ | async)?.name === book.name"
+                  (click)="onWorkbookSelected(book)"
+    ></app-workbook>
+  </div>
+</div>
+
+
+<app-upload-json-form
+  (onUpload)="onJsonUpload($event)"
+></app-upload-json-form>
+
+<app-filter
+  [sorting]="storage.sorting$ | async"
+  [hideIf]="storage.hideIf$ | async"
+  [isWorkbookSelected]="!!(storage.selected$ | async)"
+  [hideIfChanged]="onHideIfChanged"
+  (onSortingChanged)="onSortingChanged($event)"
+></app-filter>
+
