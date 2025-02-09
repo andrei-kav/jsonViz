@@ -57,10 +57,10 @@ export class ChartsContainerComponent implements OnInit {
           this.barSvgRef.nativeElement.textContent = ''
           this.chartBuilder.barChart(data, this.barSvgRef.nativeElement)
         }
-        // if (this.pieSvgRef) {
-        //   this.pieSvgRef.nativeElement.textContent = ''
-        //   this.chartBuilder.pieChart(data, this.pieSvgRef.nativeElement)
-        // }
+        if (this.pieSvgRef) {
+          this.pieSvgRef.nativeElement.textContent = ''
+          this.chartBuilder.pieChart(data, this.pieSvgRef.nativeElement)
+        }
       })
   }
 
