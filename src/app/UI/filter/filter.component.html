@@ -3,7 +3,7 @@
     <p-select [options]="sortingTypes"
               [(ngModel)]="sorting"
               [disabled]="!isWorkbookSelected"
-              (onChange)="onSortingChanged.emit($event.value)"
+              (onChange)="sortingChanged.emit($event.value)"
               class="fixed-width"
               inputId="sortingInput"
     />
@@ -14,7 +14,7 @@
                    [useGrouping]="false"
                    [min]="0"
                    [disabled]="!isWorkbookSelected"
-                   (onInput)="onHideIfInput($event.value)"
+                   (onInput)="onHideIfChanged.emit($event.value)"
                    inputId="hideIfInput"
                    mode="decimal"
                    inputId="withoutgrouping"

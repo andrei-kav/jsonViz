@@ -6,13 +6,13 @@
                 accept="application/json, .json"
                 [auto]="true"
                 [customUpload]="true"
-                (uploadHandler)="onUpload.emit($event)"
+                (uploadHandler)="upload.emit($event)"
   />
 
   <p-button icon="pi pi-lightbulb"
             severity="info"
             outlined
-            (onClick)="onShowHintClick.emit()"
+            (onClick)="showHintClicked.emit()"
             [disabled]="isHintVisible"
   />
 

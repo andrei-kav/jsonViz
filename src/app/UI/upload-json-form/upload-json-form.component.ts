@@ -15,8 +15,8 @@ export class UploadJsonFormComponent {
   isHintVisible = false;
 
   @Output()
-  onUpload: EventEmitter<any> = new EventEmitter<any>()
+  upload: EventEmitter<any> = new EventEmitter<any>()
   @Output()
-  onShowHintClick: EventEmitter<any> = new EventEmitter<any>()
+  showHintClicked: EventEmitter<any> = new EventEmitter<any>()
 
 }

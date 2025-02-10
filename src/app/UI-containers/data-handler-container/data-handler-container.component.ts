@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, inject, OnInit, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, signal} from '@angular/core';
 import {PrimengImportsModule} from '../../primeng/imports';
 import {SortingType, Workbook, WorkbookData} from '../../models/models';
-import {delay, of, switchMap} from 'rxjs';
+import {delay, of} from 'rxjs';
 import {CustomMessagesService} from '../../services/custom-messages.service';
 import {UploadJsonFormComponent} from '../../UI/upload-json-form/upload-json-form.component';
 import {WorkbookComponent} from '../../UI/workbook/workbook.component';
@@ -22,17 +22,13 @@ import {StorageService} from '../../services/storage.service';
   styleUrl: './data-handler-container.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataHandlerContainerComponent implements OnInit {
+export class DataHandlerContainerComponent {
 
   private customMessagesService: CustomMessagesService = inject(CustomMessagesService)
 
   storage: StorageService = inject(StorageService)
-  onHideIfChanged = new EventEmitter<number | null>()
-  isJsonHintVisible = signal(false);
 
-  ngOnInit() {
-    this.listenToOnHideIfChanged()
-  }
+  isJsonHintVisible = signal(false);
 
   onJsonUpload(event: { files: File[] }) {
     const file: File = event.files[0]
@@ -55,7 +51,7 @@ export class DataHandlerContainerComponent implements OnInit {
     this.handleFile(file)
   }
 
-  onShowJsonHintClick() {
+  onShowJsonHintClicked() {
     this.isJsonHintVisible.update(() => true)
     this.customMessagesService.message('info', 'Info', this.getJsonStructureHintDetail(), 10000)
     of(false)
@@ -71,23 +67,16 @@ export class DataHandlerContainerComponent implements OnInit {
     this.storage.selectWorkbook(workbook)
   }
 
+  onHideIfChanged(value: number | null) {
+    this.storage.changeHideIf(value)
+  }
+
   private getJsonStructureHintDetail(): string {
     return `The Json structure shall be following:
       [ {"category": "any string", "value": number }, ... ].
       Data items containing negative values will be filtered out during rendering.
       Data files examples you can find in the "examples" folder under the root
     `
-  }
-
-  private listenToOnHideIfChanged() {
-    // delay hideIf value changing for some time
-    // to avoid rerendering after every input
-    this.onHideIfChanged.asObservable()
-      .pipe(switchMap(value => of(value).pipe(delay(700))))
-      .subscribe((value) => {
-          this.storage.changeHideIf(value)
-        }
-      )
   }
 
   private handleFile(file: File) {

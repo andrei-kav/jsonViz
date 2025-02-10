@@ -1,7 +1,7 @@
 <app-upload-json-form
   [isHintVisible]="isJsonHintVisible()"
-  (onUpload)="onJsonUpload($event)"
-  (onShowHintClick)="onShowJsonHintClick()"
+  (upload)="onJsonUpload($event)"
+  (showHintClicked)="onShowJsonHintClicked()"
 ></app-upload-json-form>
 
 <div *ngIf="(storage.workbooks$ | async)?.length"
@@ -19,8 +19,8 @@
     [sorting]="storage.sorting$ | async"
     [hideIf]="storage.hideIf$ | async"
     [isWorkbookSelected]="!!(storage.selected$ | async)"
-    [hideIfChanged]="onHideIfChanged"
-    (onSortingChanged)="onSortingChanged($event)"
+    (hideIfChanged)="onHideIfChanged($event)"
+    (sortingChanged)="onSortingChanged($event)"
   ></app-filter>
 </div>
 
