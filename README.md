@@ -4,18 +4,18 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Beginning
 
-First install node mudules
+First, install node modules
 ```
 npm install
 ```
-Then start the application
+Then run the application
 ```
 npm run start
 ```
 
 ### JSON DATA
 
-JSON data should be of the following type 
+JSON data shall be of the following type 
 ```
 [ { "category": "any string", "value": number }, ... ]
 ```
