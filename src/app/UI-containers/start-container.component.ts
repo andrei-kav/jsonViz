@@ -48,7 +48,8 @@ export class StartContainerComponent {
     return `The Json structure shall be following:
       [ {"category": "any string", "value": number }, ... ].
       Data items containing negative values will be ignored during rendering.
-      Data files examples you can find in the "examples" folder under the root
+      Sorting alphabetically is case-insensitive.
+      Data files examples you can find in the "examples" folder under the root.
     `
   }
 
