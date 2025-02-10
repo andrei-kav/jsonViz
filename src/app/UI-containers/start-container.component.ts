@@ -13,7 +13,6 @@ import {StartComponent} from '../UI/start/start.component';
     <app-start
       [title]="'jsonViz'"
       [isHintVisible]="isJsonHintVisible()"
-      (titleClicked)="onTitleClicked()"
       (fileUploaded)="onJsonUpload($event)"
       (showHintClicked)="onShowJsonHintClicked()"
     ></app-start>
@@ -38,10 +37,6 @@ export class StartContainerComponent {
     of(false)
       .pipe(delay(3000))
       .subscribe(value => this.isJsonHintVisible.update(() => value))
-  }
-
-  onTitleClicked() {
-    console.log('go to')
   }
 
   private getJsonStructureHintDetail(): string {

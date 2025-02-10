@@ -18,8 +18,6 @@ export class StartComponent {
   isHintVisible = false
 
   @Output()
-  titleClicked: EventEmitter<void> = new EventEmitter<void>()
-  @Output()
   fileUploaded: EventEmitter<{ files: File[] }> = new EventEmitter<{ files: File[] }>()
   @Output()
   showHintClicked: EventEmitter<void> = new EventEmitter<void>()
