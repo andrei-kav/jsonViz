@@ -1,23 +1,26 @@
-<div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
-  <div class="grid">
+<app-upload-json-form
+  [isHintVisible]="isJsonHintVisible()"
+  (onUpload)="onJsonUpload($event)"
+  (onShowHintClick)="onShowJsonHintClick()"
+></app-upload-json-form>
+
+<div *ngIf="(storage.workbooks$ | async)?.length"
+     class="surface-ground px-4 py-5 md:px-6 lg:px-8 flex flex-col justify-center items-center gap-4"
+>
+  <div class="flex flex-row flex-wrap justify-center items-center gap-2">
     <app-workbook *ngFor="let book of storage.workbooks$ | async"
                   [workbook]="book"
                   [isSelected]="(storage.selected$ | async)?.name === book.name"
                   (click)="onWorkbookSelected(book)"
     ></app-workbook>
   </div>
+
+  <app-filter
+    [sorting]="storage.sorting$ | async"
+    [hideIf]="storage.hideIf$ | async"
+    [isWorkbookSelected]="!!(storage.selected$ | async)"
+    [hideIfChanged]="onHideIfChanged"
+    (onSortingChanged)="onSortingChanged($event)"
+  ></app-filter>
 </div>
-
-
-<app-upload-json-form
-  (onUpload)="onJsonUpload($event)"
-></app-upload-json-form>
-
-<app-filter
-  [sorting]="storage.sorting$ | async"
-  [hideIf]="storage.hideIf$ | async"
-  [isWorkbookSelected]="!!(storage.selected$ | async)"
-  [hideIfChanged]="onHideIfChanged"
-  (onSortingChanged)="onSortingChanged($event)"
-></app-filter>
 

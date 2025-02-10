@@ -1,14 +1,25 @@
-<p-select [options]="sortingTypes"
-          [(ngModel)]="sorting"
-          [disabled]="!isWorkbookSelected"
-          (onChange)="onSortingChanged.emit($event.value)"
-          class="w-full md:w-56"
-/>
-<p-inputnumber [(ngModel)]="hideIf"
-               [useGrouping]="false"
-               [min]="0"
-               [disabled]="!isWorkbookSelected"
-               (onInput)="onHideIfInput($event.value)"
-               mode="decimal"
-               inputId="withoutgrouping"
-/>
+<section class="flex flex-row flex-wrap justify-center items-center gap-2">
+  <p-floatlabel variant="in">
+    <p-select [options]="sortingTypes"
+              [(ngModel)]="sorting"
+              [disabled]="!isWorkbookSelected"
+              (onChange)="onSortingChanged.emit($event.value)"
+              class="fixed-width"
+              inputId="sortingInput"
+    />
+    <label for="sortingInput">Sort alphabetically</label>
+  </p-floatlabel>
+  <p-floatlabel variant="in">
+    <p-inputnumber [(ngModel)]="hideIf"
+                   [useGrouping]="false"
+                   [min]="0"
+                   [disabled]="!isWorkbookSelected"
+                   (onInput)="onHideIfInput($event.value)"
+                   inputId="hideIfInput"
+                   mode="decimal"
+                   inputId="withoutgrouping"
+                   class="fixed-width"
+    />
+    <label for="hideIfInput">Hide If Less Than Or Equal to</label>
+  </p-floatlabel>
+</section>

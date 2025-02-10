@@ -15,5 +15,5 @@ import {PrimengImportsModule} from './primeng/imports';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  title = 'jsonViz';
+  title = 'json Viz App';
 }

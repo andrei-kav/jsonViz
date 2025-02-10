@@ -1,18 +1,11 @@
-<h1>
-  {{title}}
-</h1>
-
-<app-charts-container></app-charts-container>
-<app-data-handler-container></app-data-handler-container>
+<div  class="flex flex-col items-center justify-center">
+  <h1>{{title}}</h1>
+  <app-data-handler-container></app-data-handler-container>
+</div>
+<hr class="divider">
+<div class="flex flex-col items-center justify-center">
+  <app-charts-container></app-charts-container>
+</div>
 
 <p-confirmDialog></p-confirmDialog>
 <p-toast />
-
-<p-splitter [panelSizes]="[25, 75]" [style]="{ height: '300px' }" styleClass="mb-8">
-  <ng-template #panel>
-    <div class="flex items-center justify-center h-full">Panel 1</div>
-  </ng-template>
-  <ng-template #panel>
-    <div class="flex items-center justify-center h-full">Panel 2</div>
-  </ng-template>
-</p-splitter>
