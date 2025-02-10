@@ -10,8 +10,8 @@ import {PieArcDatum} from 'd3';
 })
 export class ChartBuilderService {
 
-  private svgSize = { width: 800, height: 500 }
-  private margin = { top: 20, right: 180, bottom: 40, left: 190 };
+  private svgSize = { width: 700, height: 500 }
+  private margin = { top: 30, right: 130, bottom: 30, left: 130 };
   private palette = d3.scaleSequential(d3.interpolateViridis);
 
   barChart(data: WorkbookData, svg: SVGSVGElement) {

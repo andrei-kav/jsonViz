@@ -1,11 +1,14 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {ChartsContainerComponent} from './UI-containers/charts-container/charts-container.component';
-import {DataHandlerContainerComponent} from './UI-containers/data-handler-container/data-handler-container.component';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {ChartsContainerComponent} from './UI-containers/charts-container.component';
+import {DataHandlerContainerComponent} from './UI-containers/data-handler-container.component';
 import {PrimengImportsModule} from './primeng/imports';
+import {StorageService} from './services/storage.service';
+import {StartContainerComponent} from './UI-containers/start-container.component';
 
 @Component({
   selector: 'app-root',
   imports: [
+    StartContainerComponent,
     ChartsContainerComponent,
     DataHandlerContainerComponent,
     PrimengImportsModule,
@@ -15,5 +18,7 @@ import {PrimengImportsModule} from './primeng/imports';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  title = 'json Viz App';
+
+  storage: StorageService = inject(StorageService)
+
 }

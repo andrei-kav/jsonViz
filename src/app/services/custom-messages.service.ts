@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {ConfirmationService, MessageService, ToastMessageOptions} from 'primeng/api';
+import {ConfirmationService, MessageService} from 'primeng/api';
 
 @Injectable({
   providedIn: 'root'
@@ -34,12 +34,8 @@ export class CustomMessagesService {
     })
   }
 
-  message(severity: string, summary: string, detail: string, life?: number) {
-    const options: ToastMessageOptions = { severity, summary, detail }
-    if (life) {
-      options.life = life
-    }
-    this.messageService.add(options)
+  message(severity: string, summary: string, detail: string) {
+    this.messageService.add({ severity, summary, detail })
   }
 
 }

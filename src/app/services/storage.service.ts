@@ -72,7 +72,8 @@ export class StorageService {
       confirmMessage = `You already have a workbook with the name "${name}". Confirm to remove it and replace with another one`
       updatedWorkbooks = [...current.filter(item => item.name !== name), newWorkbook]
     } else if (amountExceeded) {
-      confirmMessage = `Your workbook exceed the limit. Confirm to delete the first workbook "${current[0].name}".`
+      const firstNotSelected = current[0].name === selected?.name ? current[1] : current[0]
+      confirmMessage = `Your workbooks exceed the limit. Confirm to delete the first not selected workbook "${firstNotSelected.name}".`
       updatedWorkbooks = [...current.slice(1), newWorkbook]
     }
 

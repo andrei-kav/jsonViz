@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, EventEmitter, Input, Output} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {PrimengImportsModule} from '../../primeng/imports';
 import {SortingType} from '../../models/models';
 import {delay, filter, of, switchMap} from 'rxjs';
@@ -9,7 +9,8 @@ import {delay, filter, of, switchMap} from 'rxjs';
     PrimengImportsModule
   ],
   templateUrl: './filter.component.html',
-  styleUrl: './filter.component.less'
+  styleUrl: './filter.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilterComponent implements AfterViewInit {
 

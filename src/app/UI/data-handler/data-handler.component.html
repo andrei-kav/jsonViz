@@ -1,0 +1,16 @@
+<div class="px-4 py-5 flex flex-column gap-4">
+  <app-table
+    [workbooks]="workbooks"
+    [selectedWorkbook]="selectedWorkbook"
+    (workbookSelected)="workbookSelected.emit($event)"
+  ></app-table>
+
+  <app-filter
+    [sorting]="sorting"
+    [hideIf]="hideIf"
+    [isWorkbookSelected]="!!selectedWorkbook"
+    (hideIfChanged)="hideIfChanged.emit($event)"
+    (sortingChanged)="sortingChanged.emit($event)"
+  ></app-filter>
+</div>
+

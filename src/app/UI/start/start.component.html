@@ -1,0 +1,20 @@
+<div class="flex flex-column align-items-center px-4 py-5">
+  <h1><a href="javascript:;" (click)="titleClicked.emit()">{{title}}</a></h1>
+
+  <div class="flex gap-2">
+    <p-fileupload mode="basic"
+                  chooseLabel="Upload JSON"
+                  chooseIcon="pi pi-upload"
+                  accept="application/json, .json"
+                  [auto]="true"
+                  [customUpload]="true"
+                  (uploadHandler)="fileUploaded.emit($event)"
+    />
+    <p-button icon="pi pi-lightbulb"
+              severity="info"
+              outlined
+              (onClick)="showHintClicked.emit()"
+              [disabled]="isHintVisible"
+    />
+  </div>
+</div>

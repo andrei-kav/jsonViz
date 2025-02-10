@@ -1,11 +1,11 @@
-<div  class="flex flex-col items-center justify-center">
-  <h1>{{title}}</h1>
-  <app-data-handler-container></app-data-handler-container>
+<div class="flex flex-row justify-content-center flex-wrap"
+     [class.align-items-center]="!(storage.selected$ | async)"
+     [class.full-height]="!(storage.selected$ | async)">
+  <app-start-container></app-start-container>
+  <app-data-handler-container *ngIf="storage.selected$ | async"></app-data-handler-container>
 </div>
-<hr class="divider">
-<div class="flex flex-col items-center justify-center">
-  <app-charts-container></app-charts-container>
-</div>
+
+<app-charts-container *ngIf="storage.selected$ | async"></app-charts-container>
 
 <p-confirmDialog></p-confirmDialog>
 <p-toast />

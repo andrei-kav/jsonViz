@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {Workbook} from '../../models/models';
 import {CommonModule} from '@angular/common';
 
@@ -9,6 +9,7 @@ import {CommonModule} from '@angular/common';
   ],
   templateUrl: './workbook.component.html',
   styleUrl: './workbook.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WorkbookComponent {
 

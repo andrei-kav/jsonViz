@@ -1,4 +1,4 @@
-<section class="flex flex-row flex-wrap justify-center items-center gap-2">
+<section class="flex flex-wrap gap-2">
   <p-floatlabel variant="in">
     <p-select [options]="sortingTypes"
               [(ngModel)]="sorting"
@@ -7,7 +7,7 @@
               class="fixed-width"
               inputId="sortingInput"
     />
-    <label for="sortingInput">Sort alphabetically</label>
+    <label for="sortingInput">Sort Alphabetically</label>
   </p-floatlabel>
   <p-floatlabel variant="in">
     <p-inputnumber [(ngModel)]="hideIf"
@@ -20,6 +20,6 @@
                    inputId="withoutgrouping"
                    class="fixed-width"
     />
-    <label for="hideIfInput">Hide If Less Than Or Equal to</label>
+    <label for="hideIfInput">Hide If Less Than Or Equal To</label>
   </p-floatlabel>
 </section>
