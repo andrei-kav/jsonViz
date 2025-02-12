@@ -12,8 +12,14 @@ import {CommonModule} from '@angular/common';
     ChartComponent
   ],
   template: `
-    <app-chart><svg #barSvg></svg></app-chart>
-    <app-chart><svg #pieSvg></svg></app-chart>
+    <app-chart [svg]="barSvgTemplate" ></app-chart>
+    <app-chart [svg]="pieSvgTemplate"></app-chart>
+    <ng-template #barSvgTemplate>
+      <svg #barSvg></svg>
+    </ng-template>
+    <ng-template #pieSvgTemplate>
+      <svg #pieSvg></svg>
+    </ng-template>
   `,
   styles: [`
     :host {
