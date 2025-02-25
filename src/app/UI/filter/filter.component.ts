@@ -1,4 +1,12 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  input,
+  Input, InputSignal, output,
+  Output, OutputEmitterRef
+} from '@angular/core';
 import {PrimengImportsModule} from '../../primeng/imports';
 import {SortingType} from '../../models/models';
 import {delay, filter, of, switchMap} from 'rxjs';
@@ -18,11 +26,13 @@ export class FilterComponent implements AfterViewInit {
   sorting: SortingType | null = SortingType.DEFAULT
   @Input()
   hideIf: number | null = null
+  // hideIf: InputSignal<number | null> = input<number | null>(null)
   @Input()
   isWorkbookSelected = false
 
   @Output()
   hideIfChanged: EventEmitter<number | null> = new EventEmitter<number | null>()
+  // hideIfChanged: OutputEmitterRef<number | null> = output<number | null>()
   @Output()
   sortingChanged: EventEmitter<SortingType> = new EventEmitter()
 
